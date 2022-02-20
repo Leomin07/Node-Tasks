@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Request, Response } from 'express';
 import colors from 'colors';
 import morgan from 'morgan';
 import 'dotenv/config';
@@ -10,6 +10,10 @@ connectDb();
 
 const port = process.env.PORT || 8000;
 const app = express();
+
+app.get('/', (req: Request, res: Response) => {
+  res.send('Hello World!');
+});
 
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
