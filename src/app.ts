@@ -1,19 +1,15 @@
-import express, { Request, Response } from 'express';
-import colors from 'colors';
-import morgan from 'morgan';
-import 'dotenv/config';
-import router from './routes/routes';
-import connectDb from './db/connect';
 import bodyParser from 'body-parser';
+import colors from 'colors';
+import 'dotenv/config';
+import express from 'express';
+import morgan from 'morgan';
+import connectDb from './db/connect';
+import router from './routes/routes';
 
 connectDb();
 
 const port = process.env.PORT || 8000;
 const app = express();
-
-app.get('/', (req: Request, res: Response) => {
-  res.send('Hello World!');
-});
 
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
