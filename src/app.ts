@@ -5,12 +5,14 @@ import express from 'express';
 import morgan from 'morgan';
 import connectDb from './db/connect';
 import router from './routes/routes';
+import cors from 'cors';
 
 connectDb();
 
 const port = process.env.PORT || 8000;
 const app = express();
 
+app.use(cors());
 app.use(morgan('tiny'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
