@@ -1,5 +1,5 @@
 import { RequestHandler } from 'express';
-import taskModel from '../models/tasks.model';
+import taskModel from './tasks.model';
 
 export const addTask: RequestHandler = (req, res) => {
   const task = new taskModel(req.body);
